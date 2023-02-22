@@ -32,11 +32,21 @@ const displayWeatherInfo = (temp, weather, wind, city) => {
 
   const iconURL = `http://openweathermap.org/img/wn/${weather.icon}@2x.png`;
   icon.src = iconURL;
+  icon.width = 150;
 
   cityElement.textContent = city;
 
   weatherElement.textContent = `Description: ${weather.description}`;
-  tempElement.textContent = `Temperature: ${temp.temp}° Celsius, feels like ${temp.feels_like}° Celsius`;
+
+  const cTemp = temp.temp;
+  const cTempFeel = temp.feels_like;
+  let fTemp = (cTemp * (9 / 5)) + 32;
+  fTemp = +fTemp.toFixed(2);
+  let fTempFeel = (cTempFeel * (9 / 5)) + 32;
+  fTempFeel = +fTempFeel.toFixed(2);
+
+  tempElement.textContent =
+    `Temperature: ${cTemp}° Celsius / ${fTemp}° Fahrenheit, feels like ${cTempFeel}° Celsius / ${fTempFeel}° Fahrenheit`;
   windElement.textContent = `Wind speed: ${wind.speed} m/s`;
 
   div.appendChild(cityElement);
@@ -44,4 +54,6 @@ const displayWeatherInfo = (temp, weather, wind, city) => {
   div.appendChild(weatherElement);
   div.appendChild(tempElement);
   div.appendChild(windElement);
+
+  div.classList.remove('hidden');
 };

@@ -1,0 +1,44 @@
+body {
+  background-color: blueviolet;
+  color: white;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin: 0px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input#city {
+  border: none;
+  border-radius: 7px;
+  font-size: 1.1rem;
+}
+
+button {
+  border-radius: 10px;
+  font-size: 1.1rem;
+  padding: 5px 15px;
+}
+
+div#weather-info {
+  text-align: center;
+  font-size: 1.3rem;
+  background-color: rgb(68, 6, 126);
+  border-radius: 15px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+#weather-info h1 {
+  font-size: 2.8rem;
+}
+
+.hidden {
+  display: none;
+}
